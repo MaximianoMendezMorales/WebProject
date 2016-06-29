@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    background: url(../img/4.jpg);
+}
+.caja .login {
+	background-color: rgba(0,0,0,0.6);
+	margin-bottom: 5px;
+	text-align: right;
+    padding: 5px;
+    border-radius: 12px;
+    color: white;
+    font-family: monospace;
+    font-size: 1.2em;
+    font-weight:bolder;
+}
+.caja .menu {
+	background-color: rgba(0,0,0,0.6);
+	padding: 1px;
+	margin-bottom: 5px;
+    border-radius: 12px;
+}
+.caja .contenido {
+	width: 55%;
+	background-color: rgba(0,0,0,0.6);
+	padding: 5px;
+	margin-bottom: 5px;
+	height: auto;
+	float: left;
+    border-radius: 12px;
+}
+.caja .destacados {
+	background-color:rgba(0,0,0,0.6);
+	float: right;
+	width: 36%;
+	padding: 5px;
+	margin-bottom: 5px;
+	height: auto;
+    border-radius: 12px;
+}
+.caja .destacados table{
+    margin: auto;
+}
+.caja .pie {
+	clear: both;
+	background-color: rgba(0,0,0,0.6);
+	padding: 5px;
+    border-radius: 12px;
+}
+#titulos {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: cursive;
+    color: white;
+    font-size: 0.9em;
+}
+#pie {
+    margin-bottom: 1px;
+    margin-top: 1px;
+    text-align: center;
+    color: white;
+    font-family: cursive;
+    font-size: 0.9em;
+}
+#galeria{
+    text-align: center;
+    color: white;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-family: cursive;
+    font-size: 1.5em;
+}#img{
+    border-radius: 100px;
+    overflow: hidden;
+}
+#info{
+    color: white;
+    text-align: center;
+    font-family: cursive;
+    font-size: 0.9em;
+}
+#titulo1{
+    text-align: center;
+    color: white;
+    font-size: 1.4em;
+}
+#enlace{
+    color: white;
+    font-family: cursive;
+    font-size: 14px;
+}

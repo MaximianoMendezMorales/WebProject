@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Maximiano TIC 3B UTSOE</title>
+        <link rel="stylesheet" type="text/css" href="css/general.css">
+        <link rel="stylesheet" type="text/css" href="css/formatomenu.css">
+        <link rel="stylesheet" type="text/css" href="css/slidestyle.css">
+        <link rel="stylesheet" type="text/css" href="css/galeria.css">
+    </head>
+    <body>
+        <div class="caja">
+            <div class="login" id="datos">
+              <form action="proceso.php" method="post">
+                    <label for="Usuario">Usuario</label>
+                    <input tyte = "text" id = "txtusr" name="txtusr" autofocus placeholder="Usuario">
+                    <label for="Contrasena">Contraseña </label>
+                    <input type="password" id="txtpwd" name="txtpwd" placeholder="* * * * * * * *">
+                    <input type="submit" name="btn" value="Iniciar sesión " id="btn">
+              </form>
+            </div>
+            <div class="slider">
+                <ul>
+                    <li><img src="img/slider/1.jpg" alt="ot1"></li>
+                    <li><img src="img/slider/2.jpg" alt="ot2"></li>
+                    <li><img src="img/slider/3.jpg" alt="ot3"></li>
+                    <li><img src="img/slider/4.jpg" alt="ot4"></li>
+                </ul>
+            </div>
+            <div class="menu">
+                <nav>
+                   <ul>
+	            <li><a href="#" class="welcome">Welcome</a></li>
+	            <li><a href="#" class="featured">Featured</a></li>
+	            <li><a href="#" class="people">People</a></li>
+	            <li><a href="#" class="music">Music</a></li>
+	            <li><a href="#" class="mixes">Mixes </a></li>
+	            <li><a href="#" class="videos">Videos</a></li>
+	            <li><a href="#" class="radio">Radio</a></li>
+            </ul>
+                </nav>
+            </div>
+            <div class="contenido">
+               <p id="titulos">Contenido</p>
+               <h1 id="galeria">Galería de imágenes Autumn</h1>
+               <ul class="galeria">
+                 <li><a href="#p1"><img src="img/galeria/P1.jpg" alt="P1"></a></li>
+                 <li><a href="#p2"><img src="img/galeria/P2.jpg" alt="P2"></a></li>
+                 <li><a href="#p3"><img src="img/galeria/P3.jpg" alt="P3"></a></li>
+                 <li><a href="#p4"><img src="img/galeria/P4.jpg" alt="P4"></a></li>
+                 <li><a href="#p5"><img src="img/galeria/P5.jpg" alt="P5"></a></li>
+                 <li><a href="#p6"><img src="img/galeria/P6.jpg" alt="P6"></a></li>
+                 <li><a href="#p7"><img src="img/galeria/P7.jpg" alt="P7"></a></li>
+                 <li><a href="#p8"><img src="img/galeria/P8.jpg" alt="P8"></a></li>
+                 <li><a href="#p9"><img src="img/galeria/P9.jpg" alt="P9"></a></li>
+                 <li><a href="#p10"><img src="img/galeria/P10.jpg" alt="P10"></a></li>
+                 <li><a href="#p11"><img src="img/galeria/P11.jpg" alt="P11"></a></li>
+                 <li><a href="#p12"><img src="img/galeria/P12.jpg" alt="P12"></a></li>
+               </ul>
+
+               <div class="modal" id="p1">
+                <h3>Paisaje 1</h3>
+                <div class="imagen">
+                    <a href="#p12">&#60;</a>
+                    <a href="#p2"><img src="img/galeria/P1.jpg" alt="P1"></a>
+                    <a href="#p2">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p2">
+                <h3>Paisaje 2</h3>
+                <div class="imagen">
+                    <a href="#p1">&#60;</a>
+                    <a href="#p3"><img src="img/galeria/P2.jpg" alt="P2"></a>
+                    <a href="#p3">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p3">
+                <h3>Paisaje 3</h3>
+                <div class="imagen">
+                    <a href="#p2">&#60;</a>
+                    <a href="#p4"><img src="img/galeria/P3.jpg" alt="P3"></a>
+                    <a href="#p4">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p4">
+                <h3>Paisaje 4</h3>
+                <div class="imagen">
+                    <a href="#p3">&#60;</a>
+                    <a href="#p5"><img src="img/galeria/P4.jpg" alt="P4"></a>
+                    <a href="#p5">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p5">
+                <h3>Paisaje 5</h3>
+                <div class="imagen">
+                    <a href="#p4">&#60;</a>
+                    <a href="#p6"><img src="img/galeria/P5.jpg" alt="P5"></a>
+                    <a href="#p6">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p6">
+                <h3>Paisaje 6</h3>
+                <div class="imagen">
+                    <a href="#p5">&#60;</a>
+                    <a href="#p7"><img src="img/galeria/P6.jpg" alt="P6"></a>
+                    <a href="#p7">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p7">
+                <h3>Paisaje 7</h3>
+                <div class="imagen">
+                    <a href="#p6">&#60;</a>
+                    <a href="#p8"><img src="img/galeria/P7.jpg" alt="P7"></a>
+                    <a href="#p8">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p8">
+                <h3>Paisaje 8</h3>
+                <div class="imagen">
+                    <a href="#p7">&#60;</a>
+                    <a href="#p9"><img src="img/galeria/P8.jpg" alt="P8"></a>
+                    <a href="#p9">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p9">
+                <h3>Paisaje 9</h3>
+                <div class="imagen">
+                    <a href="#p8">&#60;</a>
+                    <a href="#p10"><img src="img/galeria/P9.jpg" alt="P9"></a>
+                    <a href="#p10">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+            <div class="modal" id="p10">
+                <h3>Paisaje 10</h3>
+                <div class="imagen">
+                    <a href="#p9">&#60;</a>
+                    <a href="#p11"><img src="img/galeria/P10.jpg" alt="P10"></a>
+                    <a href="#p11">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p11">
+                <h3>Paisaje 11</h3>
+                <div class="imagen">
+                    <a href="#p10">&#60;</a>
+                    <a href="#p12"><img src="img/galeria/P11.jpg" alt="P11"></a>
+                    <a href="#p12">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+             <div class="modal" id="p12">
+                <h3>Paisaje 12</h3>
+                <div class="imagen">
+                    <a href="#p11">&#60;</a>
+                    <a href="#p1"><img src="img/galeria/P12.jpg" alt="P1"></a>
+                    <a href="#p1">></a>
+                </div>
+                <a class="cerrar" href="">X</a>
+            </div>
+
+              </div>
+            <div class="destacados">
+            <p id="titulos">Area de destacados y relacionado</p>
+            <table>
+                <tr>
+                    <td><img src="img/desc/11070218_355977054596028_6492898790641398687_n.jpg" alt="Maximiano" width="150px" height="150px"  id="img"></td>
+                </tr>
+            </table>
+               <h2 id="titulo1">Información</h2>
+                <p id="info">Hola mi nombre es Maximiano Méndez Morales y estudio la carrera de TSU en TIC (Tocologías de la Información y la Comunicación) en la Universidad Tecnológica del Suroeste del Estado (UTSOE) y desarrolle esta página para la materia de Desarrollo de Aplicaciones Web.</p>
+            <table>
+                <tr>
+                    <td><a href="http://mendezmorales-cps.blogspot.com" target="_blank"><img src="img/socialnetworks/blogger.png" alt="Blogger" width="45"></a></td>
+                    <td><p id="enlace">Mi blog personal</p></td>
+                    <td></td>
+                </tr>
+            </table>
+            </div>
+            <div class="pie">
+            <p id="pie">Pie de pagina</p>
+            </div>
+        </div>
+        <script src="Public/plugins/jquery-2.2.4.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                // this is the id of the form
+                $("#datos").find("form").on("submit", function (event) {
+                 event.preventDefault();
+                    $.ajax({
+                      url: "proceso.php",
+                      type: "POST",
+                      //datos del formulario
+                      data: $(this).serialize(),
+                      //una vez finalizado correctamente
+                      success: function (response) {
+                        if(response!=""){
+                            alert(response);
+                            // show response from the php script.
+                        }
+                      }
+                 });
+                });
+            });
+        </script>
+    </body>
+</html>

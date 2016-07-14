@@ -13,10 +13,10 @@
             <div class="login" id="datos">
               <form action="proceso.php" method="post">
                     <label for="Usuario">Usuario</label>
-                    <input tyte = "text" id = "txtusr" name="txtusr" autofocus placeholder="Usuario">
+                    <input tyte = "text" id = "txtusr" name="txtusr" autofocus placeholder="Usuario" class="input-l">
                     <label for="Contrasena">Contraseña </label>
-                    <input type="password" id="txtpwd" name="txtpwd" placeholder="********">
-                    <input type="submit" name="btn" value="Iniciar sesión " id="btn">
+                    <input type="password" id="txtpwd" name="txtpwd" placeholder="********" class="input-l">
+                    <input type="submit" name="btn" value="Iniciar sesión " id="btn" class="bnt-login">
               </form>
             </div>
             <div class="slider">
@@ -30,7 +30,9 @@
             <div class="menu">
                 <nav>
                    <ul>
-	            <li><a href="#" class="welcome">Welcome</a></li>
+	            <li><a href="index.html" class="welcome">Welcome</a></li>
+	            <li><a href="tblUsuarios.php" class="usrs">Usuarios</a></li>
+	            <!--<li><a href="Mapa.html" class="mapa">Mapa</a></li>-->
 	            <li><a href="#" class="featured">Featured</a></li>
 	            <li><a href="#" class="people">People</a></li>
 	            <li><a href="#" class="music">Music</a></li>
@@ -194,12 +196,19 @@
                     <td><p id="enlace">Mi blog personal</p></td>
                     <td></td>
                 </tr>
+                <tr>
+                    <td><a href="Mapa.html" target="_blank"><img src="img/socialnetworks/map.png" alt="Blogger" width="45" height="45"></a></td>
+                    <td><p id="enlace">Mapa Geolocalización</p></td>
+                    <td></td>
+                </tr>
             </table>
             </div>
             <div class="pie">
             <p id="pie">Pie de pagina</p>
             </div>
         </div>
+
+
         <script src="Public/plugins/jquery-2.2.4.min.js"></script>
         <script>
             $(document).ready(function(){

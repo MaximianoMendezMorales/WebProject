@@ -1,41 +1,34 @@
 <?php
-require_once 'control/datos.php';
+class usuarios{
+    function __construct(){
+        $this->mysqli = new mysqli("localhost", "ticbgnco_Maxi", "Maximiano123.", "ticbgnco_Maxiappweb");
+    }
 
-class usuarios {
-    protected $connect;
-    protected $db;
-    // Attempts to initialize the database connection using the supplied info.
-   function __construct() {
-        $this->connect = mysql_connect(DB_HOST, DB_USER, DB_PASS);
-        $this->db = mysql_select_db(DB_NAME);
-   }
-
-    // Executes the specified query and returns an associative array of reseults.
-    protected function execute($sql) {
-        $res = mysql_query($sql, $this->connect) or die(mysql_error());
-		$userVO=null;
-        if(mysql_num_rows($res) > 0) {
-            for($i = 0; $i < mysql_num_rows($res); $i++) {
-                $row = mysql_fetch_assoc($res);
-                $userVO[$i] = new UserVO();
+    function execute($sql){
+    $res = $this->mysqli->query($sql);
+    $userVO = null;
+    if($res->num_rows > 0){
+        for($i = 0; $i < $res->num_rows; $i++){
+            $row = $res->fetch_assoc();
+            $userVO[$i] = new UserVO();
 				//echo $row["usrid"]." ".$row["usrnombre"]." ".$row["usrpass"];
-                $userVO[$i]->setId($row["usrid"]);
-                $userVO[$i]->setUsername($row["usrnombre"]);
-                $userVO[$i]->setPassword($row["usrpass"]);
+            $userVO[$i]->setId($row["usrid"]);
+            $userVO[$i]->setUsername($row["usrnombre"]);
+            $userVO[$i]->setPassword($row["usrpass"]);
             }
         }
         return $userVO;
-	}
+    }
 
     // Retrieves the corresponding row for the specified user ID.
     public function getByUserId($userId) {
-        $sql = "SELECT * FROM users WHERE id=".$userId;
+        $sql = "SELECT * FROM tblusuarios WHERE usrid=".$userId;
         return $this->execute($sql);
     }
 
     // Retrieves all users currently in the database.
     public function getUsers() {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM tblusuarios";
         return $this->execute($sql);
     }
 
@@ -55,21 +48,21 @@ class usuarios {
         // If the query returned a row then update,
         // otherwise insert a new user.
         if(sizeof($currUserVO) > 0) {
-            $sql = "UPDATE users SET ".
-                "username='".$userVO->getUsername()."', ".
-                "password='".$userVO->getPassword()."' ".
-                "WHERE id=".$userVO->getId();
+            $sql = "UPDATE tblusuarios SET ".
+                "usrnombre='".$userVO->getUsername()."', ".
+                "usrpass='".$userVO->getPassword()."' ".
+                "WHERE usrid=".$userVO->getId();
 
-            mysql_query($sql, $this->connect) or die(mysql_error());
-            $affectedRows = mysql_affected_rows();
+            $this->mysqli->query($sql);
+            $affectedRows->affected_rows();
         }
         else {
-            $sql = "INSERT INTO users (username, password) VALUES('".
+            $sql = "INSERT INTO tblusuarios (usrnombre, usrpass) VALUES('".
                 $userVO->getUsername()."', ".
                 $userVO->getPassword()."')".
 
-            mysql_query($sql, $this->connect) or die(mysql_error());
-            $affectedRows = mysql_affected_rows();
+            $this->mysqli->query($sql);
+            $affectedRows->affected_rows();
         }
         return $affectedRows;
     }
@@ -85,15 +78,16 @@ class usuarios {
 
         // Otherwise delete a user.
         if(sizeof($currUserVO) > 0) {
-            $sql = "DELETE FROM users WHERE id=".$userVO->getId();
+            $sql = "DELETE FROM tblusuarios WHERE usrid=".$userVO->getId();
 
-            mysql_query($sql, $this->connect) or die(mysql_error());
-            $affectedRows = mysql_affected_rows();
+            $this->mysqli->query($sql);
+            $affectedRows->affected_rows();
 
         return $affectedRows;
     }
   }
 }
+
 
 class UserVO {
 	protected $id;

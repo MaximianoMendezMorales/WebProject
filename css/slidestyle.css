@@ -2,7 +2,8 @@
     width: 100%;
     margin: auto;
     overflow: hidden;
-    border-radius: 200px;
+    //border-radius: 200px;
+    background-color:cadetblue;
 }
 
 .slider ul {

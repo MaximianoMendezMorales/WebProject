@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Maximiano TIC 3B UTSOE</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/general.css">
+        <link rel="stylesheet" type="text/css" href="css/formatomenu.css">
+        <link rel="stylesheet" type="text/css" href="css/slidestyle.css">
+        <link rel="stylesheet" type="text/css" href="css/galeria.css">
+    </head>
+    <body>
+        <div class="caja">
+            <div class="login" id="datos">
+              <form action="proceso.php" method="post">
+                    <label for="Usuario">Usuario</label>
+                    <input tyte = "text" id = "txtusr" name="txtusr" autofocus placeholder="Usuario" class="input-l">
+                    <label for="Contrasena">Contraseña </label>
+                    <input type="password" id="txtpwd" name="txtpwd" placeholder="********" class="input-l">
+                    <input type="submit" name="btn" value="Iniciar sesión " id="btn" class="bnt-login">
+              </form>
+            </div>
+            <div class="slider">
+                <ul>
+                    <li><img src="img/slider/1.jpg" alt="ot1"></li>
+                    <li><img src="img/slider/2.jpg" alt="ot2"></li>
+                    <li><img src="img/slider/3.jpg" alt="ot3"></li>
+                    <li><img src="img/slider/4.jpg" alt="ot4"></li>
+                </ul>
+            </div>
+            <div class="menu">
+                <nav>
+                   <ul>
+	            <li><a href="index.html" class="welcome">Welcome</a></li>
+	            <li><a href="http://mendezmorales-cps.blogspot.com" target="_blank">Blog</a></li>
+	            <li><a href="tblUsuarios.php" class="usrs">Usuarios</a></li>
+	            <li><a href="#" class="featured">Featured</a></li>
+	            <li><a href="#" class="people">People</a></li>
+	            <li><a href="#" class="music">Music</a></li>
+	            <li><a href="#" class="mixes">Mixes </a></li>
+	            <li><a href="#" class="videos">Videos</a></li>
+	            <li><a href="#" class="radio">Radio</a></li>
+            </ul>
+                </nav>
+            </div>
+
+            <div class="registro1">
+                <hi>MAPA</hi>
+            </div>
+            <div class="mapa">
+                  <div id="map" style="width:100%; height:100%;"></div>
+                      <script type="text/javascript">
+                          var map;
+                          function initMap() {
+                              var myLatLng = {lat: 20.39813, lng: -101.22308};
+                              var map = new google.maps.Map(document.getElementById('map'), {
+                              zoom: 15,
+                              center: myLatLng
+                              });
+                              var marker = new google.maps.Marker({
+                              position: myLatLng,
+                              map: map,
+                              title: 'UTSOE'
+                              });
+                          }
+                      </script>
+                      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA46EIE6970TAzBDyu080WK08jmw1js8VU&callback=initMap"></script>
+              </div>
+
+            <div class="pie">
+            <p id="pie">Pie de pagina</p>
+            </div>
+        </div>
+
+
+        <script src="Public/plugins/jquery-2.2.4.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                // this is the id of the form
+                $("#datos").find("form").on("submit", function (event) {
+                 event.preventDefault();
+                    $.ajax({
+                      url: "proceso.php",
+                      type: "POST",
+                      //datos del formulario
+                      data: $(this).serialize(),
+                      //una vez finalizado correctamente
+                      success: function (response) {
+                        if(response!=""){
+                            alert(response);
+                            // show response from the php script.
+                        }
+                      }
+                 });
+                });
+            });
+        </script>
+    </body>
+</html>

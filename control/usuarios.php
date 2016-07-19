@@ -1,7 +1,7 @@
 <?php
 class usuarios{
     function __construct(){
-        $this->mysqli = new mysqli("localhost", "ticbgnco_Maxi", "Maximiano123.", "ticbgnco_Maxiappweb");
+        $this->mysqli = new mysqli("localhost", "root", "", "appweb"/*"localhost", "ticbgnco_Maxi", "Maximiano123.", "ticbgnco_Maxiappweb"*/);
     }
 
     function execute($sql){

@@ -43,6 +43,30 @@
                 </nav>
             </div>
 
+            <div class="destacados">
+                <p id="titulos">Area de destacados y relacionado</p>
+            <table>
+                <tr>
+                    <td><img src="img/desc/11070218_355977054596028_6492898790641398687_n.jpg" alt="Maximiano" width="150px" height="150px"  id="img"></td>
+                </tr>
+            </table>
+               <h2 id="titulo1">Información</h2>
+                <p id="info">Hola mi nombre es Maximiano Méndez Morales y estudio la carrera de TSU en TIC (Tocologías de la Información y la Comunicación) en la Universidad Tecnológica del Suroeste del Estado (UTSOE) y desarrolle esta página para la materia de Desarrollo de Aplicaciones Web.</p>
+            <table>
+                <tr>
+                    <td><a href="http://mendezmorales-cps.blogspot.com" target="_blank"><img src="img/socialnetworks/blogger.png" alt="Blogger" width="45"></a></td>
+                    <td><p id="enlace">Mi blog personal</p></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="Mapa.html" target="_self"><img src="img/socialnetworks/map.png" alt="Mapa" width="45" height="45" ></a></td>
+                    <td><p id="enlace">Mapa Geolocalización</p></td>
+                    <td></td>
+                </tr>
+            </table>
+            </div>
+
+
             <div class="registro">
                <h1 id="titulo2">Registrate</h1>
                 <input type="text" placeholder="Ingresa tu nombre" class="input-95">
@@ -89,10 +113,7 @@
                  <button id="btn-act">Actualizar</button>
              </div>
             </div>
-            <div class="destacados">
 
-
-            </div>
              <div class="pie">
             <p id="pie">Pie de pagina</p>
             </div>

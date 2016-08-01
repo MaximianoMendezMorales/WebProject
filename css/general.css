@@ -127,12 +127,12 @@ body {
     margin: auto;
     padding: 5px;
 	margin-bottom: 20px;
-	height: auto;
+	height: 25px;
     background-color: #F5F5F5;
     margin-top: 15px;
     font-family: monospace;
-    overflow: scroll;
     text-align: left;
+    overflow-y: scroll;
 }
 
 .caja .btn{
@@ -188,24 +188,46 @@ body {
     -moz-box-shadow: 0px 4px 10px 2px rgba(0,2,0,0.4);
     box-shadow: 0px 4px 10px 2px rgba(0,2,0,0.4);
 }
+
+#btns{
+    width: 100%;
+}
+
+#tbl{
+    margin: auto;
+}
 .input-95{
     background-color:white;
     border: 1px solid white;
     height: 30px;
     font-family: monospace;
     color: gray;
-    width: 175px;
+    width: 200px;
     margin-top: 2px;
     border-radius: 5px;
 }
 
-#reg{
+#btn-acep{
     background-color:cadetblue;
     border: 1px solid white;
     height: 35px;
     font-family: monospace;
     color: white;
     border-radius: 5px;
+}
+
+#btn-new{
+    background-color:cadetblue;
+    border: 1px solid white;
+    height: 35px;
+    font-family: monospace;
+    color: white;
+    border-radius: 5px;
+}
+
+#btn-new:hover{
+    background-color: white;
+    color: cadetblue;
 }
 
 #titulo2{
@@ -215,7 +237,7 @@ body {
     font-family: monospace;
 }
 
-#reg:hover{
+#btn-acep:hover{
     background-color: white;
     color: cadetblue;
 }
@@ -288,7 +310,7 @@ body {
     color: white;
     font-family: monospace;
     text-align: center;
-    width: 100%;
+    width: 52%;
 	padding: 5px;
 	margin-bottom: 20px;
 	height: auto;

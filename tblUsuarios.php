@@ -67,12 +67,45 @@
             </div>
 
 
-            <div class="registro">
-               <h1 id="titulo2">Registrate</h1>
-                <input type="text" placeholder="Ingresa tu nombre" class="input-95">
-                <input type="password" placeholder="Ingresa una contraseña" class="input-95">
-                <input type="password" placeholder="Confirma tu contraseña" class="input-95">
-                <input type="submit" value="Registrar" id="reg">
+            <div id="frmuser" class="registro">
+              <form action="ageragar.php" id="frmcapuser" method="POST">
+                <h1 id="titulo2">Registrate</h1>
+
+                <table id="tbl">
+                   <tr>
+                       <td>
+                            <input type="text" placeholder="Ingresa tu ID" id="ins_id" name="ins_id" class="input-95">
+                        </td>
+                   </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Ingresa tu nombre" class="input-95" name="ins_user" id="ins_user">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" placeholder="Ingresa una contraseña" class="input-95" id="ins_pass" name="ins_pass">
+                        </td>
+                        <td>
+
+                        </td>
+                         <td>
+                            <!--<input type="submit" value="Nuevo" id="btn-new">-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <input type="password" placeholder="Confirma tu contraseña" class="input-95" id="ins_pass_confirm" name="ins_pass_confirm">
+                        </td>
+                    </tr>
+                </table>
+                <table id="btns">
+                    <tr>
+                        <td><input type="submit" value="Aceptar" id="btn-acep"></td>
+                        <td><input type="submit" id="btn-new"></td>
+                    </tr>
+                </table>
+              </form>
             </div>
 
             <div class="tablaUsers">
@@ -164,30 +197,42 @@
      });
 
 
+    $("#frmuser").find("form").on("submit", function (event) {
+     event.preventDefault();
+		if($('#ins_pass').val()==$("#ins_pass_confirm").val()){
+            $.ajax({
+			  url: "agregar.php",
+			  type: "POST",
+			  //datos del formulario
+			  data: $(this).serialize(),
+			  //una vez finalizado correctamente
+			  success: function (response) {
+				  location.reload();
+			  },
+			  error: function (response) {
+				   alert(response);
+			  },
+		   });
+         }else{
+			alert('Error password incorrecto');
+		 }
+	});
+
+     $("#btn-new").click(function (event) {
+		$(":text").each(function() {
+            $($(this)).val('');
+
+    	});
+         $(":password").each(function() {
+            $($(this)).val('');
+
+    	});
+		//window.location.href = path + 'xls/articulosCica2016.xlsx';
+     });
+
+
+
 });
         </script>
-
-        <!--<script src="Public/plugins/jquery-2.2.4.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                // this is the id of the form
-                $("#datos").find("form").on("submit", function (event) {
-                 event.preventDefault();
-                    $.ajax({
-                      url: "proceso.php",
-                      type: "POST",
-                      //datos del formulario
-                      data: $(this).serialize(),
-                      //una vez finalizado correctamente
-                      success: function (response) {
-                        if(response!=""){
-                            alert(response);
-                            // show response from the php script.
-                        }
-                      }
-                 });
-                });
-            });
-        </script>-->
     </body>
 </html>

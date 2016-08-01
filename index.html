@@ -31,7 +31,7 @@
                 <nav>
                    <ul>
 	            <li><a href="index.html" class="welcome">Welcome</a></li>
-	            <li><a href="tblUsuarios.php" class="usrs">Usuarios</a></li>
+	            <li><a href="tblUsuarios.php" class="usrs" id="users">Usuarios</a></li>
 	            <!--<li><a href="Mapa.html" class="mapa">Mapa</a></li>-->
 	            <li><a href="#" class="featured">Featured</a></li>
 	            <li><a href="#" class="people">People</a></li>
@@ -219,6 +219,7 @@
         <script src="Public/plugins/jquery-2.2.4.min.js"></script>
         <script>
             $(document).ready(function(){
+                $("#users").hide();
                 // this is the id of the form
                 $("#datos").find("form").on("submit", function (event) {
                  event.preventDefault();

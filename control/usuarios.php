@@ -1,24 +1,30 @@
 <?php
-class usuarios{
-    function __construct(){
-        $this->mysqli = new mysqli("localhost", "root", "", "appweb"/*"localhost", "ticbgnco_Maxi", "Maximiano123.", "ticbgnco_Maxiappweb"*/);
-    }
+require_once 'control/datos.php';
 
-    function execute($sql){
-    $res = $this->mysqli->query($sql);
-    $userVO = null;
-    if($res->num_rows > 0){
-        for($i = 0; $i < $res->num_rows; $i++){
-            $row = $res->fetch_assoc();
-            $userVO[$i] = new UserVO();
-				//echo $row["usrid"]." ".$row["usrnombre"]." ".$row["usrpass"];
-            $userVO[$i]->setId($row["usrid"]);
-            $userVO[$i]->setUsername($row["usrnombre"]);
-            $userVO[$i]->setPassword($row["usrpass"]);
-            }
+class usuarios {
+    protected $connect;
+    protected $db;
+    // Attempts to initialize the database connection using the supplied info.
+   function __construct() {
+        $this->connect = mysql_connect(DB_HOST, DB_USER, DB_PASS);
+        $this->db = mysql_select_db(DB_NAME);
+   }
+
+    // Executes the specified query and returns an associative array of reseults.
+    protected function execute($sql) {
+        $res = mysql_query($sql, $this->connect) or die(mysql_error());
+		$userVO=null;
+        if(mysql_num_rows($res) > 0) {
+			for($i = 0; $i < mysql_num_rows($res); $i++) {
+				$row = mysql_fetch_assoc($res);
+				$userVO[$i] = new UserVO();
+				$userVO[$i]->setId($row["usrid"]);
+				$userVO[$i]->setUsername($row["usrnombre"]);
+				$userVO[$i]->setPassword($row["usrpass"]);
+			}
         }
         return $userVO;
-    }
+	}
 
     // Retrieves the corresponding row for the specified user ID.
     public function getByUserId($userId) {
@@ -28,7 +34,7 @@ class usuarios{
 
     // Retrieves all users currently in the database.
     public function getUsers() {
-        $sql = "SELECT * FROM tblusuarios";
+        $sql = "SELECT * FROM tblusuarios ORDER By usrnombre asc";
         return $this->execute($sql);
     }
 
@@ -41,28 +47,27 @@ class usuarios{
     //Saves the supplied user to the database.
     public function save($userVO) {
         $affectedRows = 0;
-
+        $currUserVO=null;
         if($userVO->getId() != "") {
-            $currUserVO = $this->getByUserId($userVO->getId());
+			$currUserVO = $this->getByUserId($userVO->getId());
         }
         // If the query returned a row then update,
         // otherwise insert a new user.
         if(sizeof($currUserVO) > 0) {
             $sql = "UPDATE tblusuarios SET ".
-                "usrnombre='".$userVO->getUsername()."', ".
+                "usrNombre='".$userVO->getUsername()."', ".
                 "usrpass='".$userVO->getPassword()."' ".
                 "WHERE usrid=".$userVO->getId();
 
-            $this->mysqli->query($sql);
-            $affectedRows->affected_rows();
+            mysql_query($sql, $this->connect) or die(mysql_error());
+            $affectedRows = mysql_affected_rows();
         }
         else {
-            $sql = "INSERT INTO tblusuarios (usrnombre, usrpass) VALUES('".
-                $userVO->getUsername()."', ".
-                $userVO->getPassword()."')".
-
-            $this->mysqli->query($sql);
-            $affectedRows->affected_rows();
+            $sql = "INSERT INTO tblusuarios (usrNombre, usrpass) VALUES('".
+                $userVO->getUsername()."', '".
+                $userVO->getPassword()."')";
+            mysql_query($sql, $this->connect) or die(mysql_error());
+            $affectedRows = mysql_affected_rows();
         }
         return $affectedRows;
     }
@@ -79,31 +84,30 @@ class usuarios{
         // Otherwise delete a user.
         if(sizeof($currUserVO) > 0) {
             $sql = "DELETE FROM tblusuarios WHERE usrid=".$userVO->getId();
-
-            $this->mysqli->query($sql);
-            $affectedRows->affected_rows();
-
+            mysql_query($sql, $this->connect) or die(mysql_error());
+            $affectedRows = mysql_affected_rows();
         return $affectedRows;
     }
   }
 }
 
-
 class UserVO {
 	protected $id;
 	protected $username;
 	protected $password;
+
+
 	public function setId($id) {
-	$this->id = $id;
+		$this->id = $id;
 	}
 	public function getId() {
-	return $this->id;
+		return $this->id;
 	}
 	public function setUsername($username) {
-	$this->username = $username;
+		$this->username = $username;
 	}
 	public function getUsername() {
-	return $this->username;
+		return $this->username;
 	}
 	public function setPassword($password) {
 	$this->password = $password;

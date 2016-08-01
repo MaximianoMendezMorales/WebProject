@@ -68,7 +68,7 @@
 
 
             <div id="frmuser" class="registro">
-              <form action="ageragar.php" id="frmcapuser" method="POST">
+              <form action="agregar.php" id="frmcapuser" method="POST">
                 <h1 id="titulo2">Registrate</h1>
 
                 <table id="tbl">
@@ -200,19 +200,36 @@
     $("#frmuser").find("form").on("submit", function (event) {
      event.preventDefault();
 		if($('#ins_pass').val()==$("#ins_pass_confirm").val()){
-            $.ajax({
-			  url: "agregar.php",
-			  type: "POST",
-			  //datos del formulario
-			  data: $(this).serialize(),
-			  //una vez finalizado correctamente
-			  success: function (response) {
-				  location.reload();
-			  },
-			  error: function (response) {
-				   alert(response);
-			  },
-		   });
+            if($('#ins_id').val()==''){
+                    $.ajax({
+                      url: "agregar.php",
+                      type: "POST",
+                      //datos del formulario
+                      data: $(this).serialize(),
+                      //una vez finalizado correctamente
+                      success: function (response) {
+                          location.reload();
+                      },
+                      error: function (response) {
+                           alert(response);
+                      },
+                   });
+            }else{
+                    $.ajax({
+                  url: "actualizar.php",
+                  type: "POST",
+                  //datos del formulario
+                  data: $(this).serialize(),
+                  //una vez finalizado correctamente
+                  success: function (response) {
+                      location.reload();
+                  },
+                  error: function (response) {
+                       alert(response);
+                  },
+               });
+            }
+
          }else{
 			alert('Error password incorrecto');
 		 }

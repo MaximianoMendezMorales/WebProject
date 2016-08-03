@@ -2,16 +2,14 @@
 include_once "control/usuarios.php";
 $clsUsuarios = new usuarios();
 
-if(isset($_POST['txtusr']) && isset($_POST['txtpwd'])){
-	$currUserVO= $clsUsuarios->getByUserPass($_POST['txtusr'],$_POST['txtpwd']);
+if(isset($_POST['txtuser']) && isset($_POST['txtpass'])){
+	$currUserVO= $clsUsuarios->getByUserPass($_POST['txtuser'],$_POST['txtpass']);
 	if(sizeof($currUserVO) > 0) {
 		foreach ($currUserVO as $UserVO) {
-    		echo "Bienvenido ". $UserVO->getUsername();
+    		echo "Correcto";
 		}
     }
 	else{
-			echo "El usuario ".$_POST['txtusr']. " es incorrecto";
+		echo "Incorrecto";
 	}
 }
-
-

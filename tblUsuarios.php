@@ -99,17 +99,17 @@
                         </td>
                     </tr>
                 </table>
-                <table id="btns">
-                    <tr>
-                        <td><input type="submit" value="Aceptar" id="btn-acep"></td>
-                        <td><input type="submit" id="btn-new"></td>
-                    </tr>
-                </table>
+                <div id="btns">
+
+                        <input type="submit" value="Aceptar" id="btn-acep">
+                        <input type="submit" id="btn-new" value="Nuevo">
+                </div>
               </form>
             </div>
 
             <div class="tablaUsers">
                <h1 id="titulo1">Tabla de usuarios</h1>
+
                 <?php
                     require_once 'control/usuarios.php';
                     $clsUsuarios = new usuarios();
@@ -139,17 +139,30 @@
                     }
                     $tablausuarios=$tablausuarios."</tbody>";
                     $tablausuarios=$tablausuarios."</table>";
-                    echo $tablausuarios;
+                    //echo $tablausuarios;
                 ?>
-             <div class="btn">
+
+
+                <div class="as">
+                <?php
+                echo $tablausuarios;
+                ?>
+            </div>
+
+            <div class="btnes">
                  <button id="btn-del">Eliminar</button>
                  <button id="btn-act">Actualizar</button>
              </div>
+
             </div>
+
+
 
              <div class="pie">
             <p id="pie">Pie de pagina</p>
             </div>
+
+
         </div>
         <script src="Public/plugins/jquery-2.2.4.min.js"></script>
         <script>
@@ -201,7 +214,10 @@
      event.preventDefault();
 		if($('#ins_pass').val()==$("#ins_pass_confirm").val()){
             if($('#ins_id').val()==''){
-                    $.ajax({
+        if($("#ins_user").val() == '' || $("#ins_pass").val() == '' || $("#ins_pass_confirm").val() == ''){
+            alert("Campos vacios")
+            }else{
+                $.ajax({
                       url: "agregar.php",
                       type: "POST",
                       //datos del formulario
@@ -214,6 +230,8 @@
                            alert(response);
                       },
                    });
+            }
+
             }else{
                     $.ajax({
                   url: "actualizar.php",
